@@ -1,20 +1,61 @@
-<h1>Todo List</h1>
+<!doctype html>
+<html>
 
-<table>
-    <tr>
-        <th>Item</th>
-        <th></th>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-    </tr>
-    {% for task in tasks %}
+<body class="bg-[#132a4b]">
 
-    <tr>
-        <td>{{task.title}}</td>
-        <td><a href="{% url 'details' task.id %}">view</a></td>
 
-    </tr>
-    {% empty %}
-    <h3>No Item in the List</h3>
-    {% endfor %}
+    <div class="px-8 py-8 ">
 
-</table>
+        <div class="max-w-[1000px] mx-auto px-4 flex flex-col justify-center w-full h-full">
+            <div class="sm:text-center pb-6 flex-col">
+                <p class="text-4xl  text-white font-bold inline border-b-4 border-pink-600 ">
+                    Todo List
+                </p>
+            </div>
+            <div class="sm:text-center pb-6 flex-col">
+                <div class="">
+
+                    <a class="text-white group rounded-lg  border-2 px-3 py-3 my-2 flex items-center hover:bg-pink-700 hover:border-pink-700"
+                        href=" {% url 'task-create'%}">Add Task +</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-[1000px] mx-auto px-4 flex flex justify-center w-full h-full">
+
+
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-5 text-center">
+
+                {% for task in tasks %}
+                <a class=" h-20 w-full hover:scale-110 duration-150 shadow-lg bg-[#223453] shadow-[#13214b] text-4xl text-white font-bold rounded-md flex  justify-center items-center mx-auto "
+                    href=" {% url 'details' task.id %}">
+                    {{task.title}}
+                </a>
+
+                {% empty %}
+                <div>
+                    <h3>No Item in the List</h3>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    </div>
+
+
+    </div>
+
+    </div>
+</body>
