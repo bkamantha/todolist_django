@@ -1,1 +1,1 @@
-Web gunicorn mysite.wsgi:application --log-file -
+web: gunicorn MBC.wsgi
