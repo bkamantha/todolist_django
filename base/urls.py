@@ -1,9 +1,9 @@
-from nturl2path import url2pathname
-from xml.etree.ElementInclude import include
 from django.urls import path, include
-from . import views
+from .views import TaskList, TaskDetail
 
 
 urlpatterns = [
-    path('', views.taskList, name='tasklist')
+    path('', TaskList.as_view(), name='tasks'),
+    path('task/<int:pk>', TaskDetail.as_view(), name='details')
+
 ]
